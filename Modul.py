@@ -46,33 +46,36 @@ menu_minuman = {
     "susu soda": 8000
 }
 
+def pesan_menu():
 
-pesanan = []
-nama_pesanan = []
-harga = []
-qty_pesanan = []
-total_harga = 0
+    pesanan = []
+    nama_pesanan = []
+    harga = []
+    qty_pesanan = []
+    total_harga = 0
 
-while True:
-    pesanan_input = input('Masukkan Nama Menu (ketik "selesai" untuk selesai): ')
+    while True:
+        pesanan_input = input('Masukkan Nama Menu (ketik "selesai" untuk selesai): ')
 
-    if pesanan_input.lower() == "selesai":
-        break
+        if pesanan_input.lower() == "selesai":
+            break
 
-    if pesanan_input.lower() in menu_makanan or pesanan_input.lower() in menu_minuman:
-        qty_input = int(input('Masukkan Qty: '))
-        
-        if pesanan_input.lower() in menu_makanan:
-            pesanan.append(pesanan_input)
-            nama_pesanan.append(pesanan_input)
-            harga.append(menu_makanan[pesanan_input])
-            qty_pesanan.append(qty_input)
-            total_harga += menu_makanan[pesanan_input] * qty_input
-        elif pesanan_input.lower() in menu_minuman:
-            pesanan.append(pesanan_input)
-            nama_pesanan.append(pesanan_input)
-            harga.append(menu_minuman[pesanan_input])
-            qty_pesanan.append(qty_input)
-            total_harga += menu_minuman[pesanan_input] * qty_input
-    else:
-        print("Menu tidak valid.")
+        if pesanan_input.lower() in menu_makanan or pesanan_input.lower() in menu_minuman:
+            qty_input = int(input('Masukkan Qty: '))
+            
+            if pesanan_input.lower() in menu_makanan:
+                pesanan.append(pesanan_input)
+                nama_pesanan.append(pesanan_input)
+                harga.append(menu_makanan[pesanan_input])
+                qty_pesanan.append(qty_input)
+                total_harga += menu_makanan[pesanan_input] * qty_input
+            elif pesanan_input.lower() in menu_minuman:
+                pesanan.append(pesanan_input)
+                nama_pesanan.append(pesanan_input)
+                harga.append(menu_minuman[pesanan_input])
+                qty_pesanan.append(qty_input)
+                total_harga += menu_minuman[pesanan_input] * qty_input
+        else:
+            print("Menu tidak valid.")
+
+    return pesanan, nama_pesanan, harga, qty_pesanan, total_harga
